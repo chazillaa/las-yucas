@@ -1,0 +1,25 @@
+resturaunt website - template
+-user accounts
+-online ordering
+-dislike option
+-favorites
+-keep order history
+-show order history/favorites for quick reorder
+-auto generate favorites
+	-customizing orders with ingredients, learned favorite ingredents
+-dislikes of items(ratings specific to user)
+-add real payment method
+	-swipe
+	-paypal
+-food with options to select or unselect
+	-notes option
+-Make a reservation
+	-potentially open table integration
+-Social Media
+-rating/reviews
+-pulling in tweets
+-happy hour discounts
+
+
+Las Yucas
+Yuccas
