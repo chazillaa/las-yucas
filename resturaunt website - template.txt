@@ -23,3 +23,5 @@ resturaunt website - template
 
 Las Yucas
 Yuccas
+
+Second website for a different resturaunt with the same user database.
