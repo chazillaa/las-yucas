@@ -52,3 +52,7 @@ ingredientsSchema.pre("save", function (next) {
     next();
 });
 
+const Ingredients = model('ingredients', ingredientsSchema);
+
+module.exports = Ingredients;
+
