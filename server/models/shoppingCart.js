@@ -1,21 +1,28 @@
 const { Schema, model } = require('mongoose');
 
+const menuItemSelectedSchema = new Schema({
+    menuItem: {
+        type: Schema.Types.ObjectId,
+        ref:'menu',
+        required:true,
+    },
+    selectedIngredients:[{
+        type: Schema.Types.ObjectId,
+        ref:'ingredients'
+    }]
+});
+
 const shoppingCartSchema = new Schema(
     {
-
-        name: {
-            type: String,
+        user: {
+            type: Schema.Types.ObjectId,
             required: true,
         },
-        imagePath: {
-            type: String,
-        },
-        price:{
+        price: {
             type: Number,
         },
-        menuItems:[{
-            type: Schema.Types.ObjectId,
-            ref:'menu'
+        menuItems: [{
+            menuItemSelectedSchema
         }],
     },
     {
