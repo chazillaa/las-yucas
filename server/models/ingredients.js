@@ -12,9 +12,11 @@ const ingredientsSchema = new Schema(
             type: String,
         },
         image: {
-            data: Buffer,
-            contentType: String
+            type: Buffer,
         },
+        price:{
+            type:Number,
+        }
     },
     {
         toJSON: {
