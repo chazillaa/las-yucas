@@ -41,6 +41,8 @@ const ingredientsSchema = new Schema(
     // Show the data record and write out to a new file.
     console.log(album);
     await fs.writeFile('./output.png', album.image)
+
+    <img src={`data:image/png;base64,${props.postImgBase64}`} alt="a"/>
 */
 
 ingredientsSchema.pre("save", function (next) {
