@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Tacos",
+        "price": "3.25",
+        "id": "1",
+        "ingredients":[
+            {
+                "_id":"1"
+            },
+            {
+                "_id":"2"
+            }
+        ]
+    },
+    {
+        "name": "Burrito",
+        "price": "9.75",
+        "id": "2"
+    },
+    {
+        "name": "Nachos",
+        "price": "10.25",
+        "id": "3"
+    },
+    {
+        "name": "Tortas",
+        "price": "10.25",
+        "id": "4"
+    }
+]
