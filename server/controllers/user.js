@@ -1,13 +1,19 @@
-require("dotenv").config()
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const { Users } = require('../models')
 
 module.exports = {
+
+    async getUsers(req, res){
+        Users.find({})
+        .then((user) => res.json(user))
+        .catch((err) => res.status(500).json(err))
+    },
+
+
     async login(req, res){
         const { email, password } = req.body
-
     try {
         const existingUser = await Users.findOne({ email })
 
@@ -36,12 +42,12 @@ module.exports = {
         const hashedPassword = await bcrypt.hash(password, 12)
 
         const result = await Users.create({
-            email,
-            password: hashedPassword,
             username,
+            email,
+            password: hashedPassword
         })
 
-        const token = jwt.sign({ email: result.email, id: result._id}, process.env.TOKEN_KEY, { expiresIn: '2h'})
+        const token = jwt.sign({ email: result.email, id: result._id}, process.env.TOKEN_KEY, { expiresIn: '1h'})
 
         result.token = token
 

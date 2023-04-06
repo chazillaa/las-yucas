@@ -1,4 +1,3 @@
-require("dotenv").config()
 const jwt = require('jsonwebtoken')
 
 const authToken = async (req, res, next) => {
@@ -10,9 +9,8 @@ const authToken = async (req, res, next) => {
 
         if(token && isCustomAuth) {
             decodedToken = jwt.verify(token, process.env.TOKEN_KEY)
-
             req.userId = decodedToken?.id
-        } 
+        }
         next()
 
     } catch (err) {
