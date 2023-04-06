@@ -25,3 +25,6 @@ Las Yucas
 Yuccas
 
 Second website for a different resturaunt with the same user database.
+
+Future items
+Tool to create menu items and link ref _ids from ingredients collection

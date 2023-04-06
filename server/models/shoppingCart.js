@@ -9,7 +9,11 @@ const menuItemSelectedSchema = new Schema({
     selectedIngredients:[{
         type: Schema.Types.ObjectId,
         ref:'ingredients'
-    }]
+    }],
+    quantity:{
+        type:Number,
+        required:true,
+    },
 });
 
 const shoppingCartSchema = new Schema(
@@ -17,6 +21,7 @@ const shoppingCartSchema = new Schema(
         user: {
             type: Schema.Types.ObjectId,
             required: true,
+            unique:true,
         },
         price: {
             type: Number,

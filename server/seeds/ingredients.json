@@ -1,0 +1,97 @@
+[{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559ef5"
+  },
+  "name": "Onions",
+  "price": 0
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559ef6"
+  },
+  "name": "Cilantro",
+  "price": 0
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559ef7"
+  },
+  "name": "Cheese",
+  "price": 0
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559ef8"
+  },
+  "name": "Lime",
+  "price": 0
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559ef9"
+  },
+  "name": "Sour Cream",
+  "price": 0
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559efa"
+  },
+  "name": "Salsa",
+  "price": 0
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559efb"
+  },
+  "name": "Lettuce",
+  "price": 0
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559efc"
+  },
+  "name": "Guacamole",
+  "price": 1
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559efd"
+  },
+  "name": "Pollo",
+  "price": 0
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559efe"
+  },
+  "name": "Asada",
+  "price": 1
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559eff"
+  },
+  "name": "Al Pastor",
+  "price": 0
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559f00"
+  },
+  "name": "Tofu",
+  "price": 0
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559f01"
+  },
+  "name": "Chorizo",
+  "price": 1
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559f02"
+  },
+  "name": "Lengua",
+  "price": 1
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559f03"
+  },
+  "name": "Carnitas",
+  "price": 1
+},{
+  "_id": {
+    "$oid": "642cbc3c281dd2b9f5559f04"
+  },
+  "name": "Barbacoa",
+  "price": 0
+}]
