@@ -14,7 +14,6 @@ module.exports = {
 
     async login(req, res){
         const { email, password } = req.body
-
     try {
         const existingUser = await Users.findOne({ email })
 
@@ -48,7 +47,7 @@ module.exports = {
             password: hashedPassword
         })
 
-        const token = jwt.sign({ email: result.email, id: result._id}, process.env.TOKEN_KEY, { expiresIn: '2h'})
+        const token = jwt.sign({ email: result.email, id: result._id}, process.env.TOKEN_KEY, { expiresIn: '1h'})
 
         result.token = token
 
