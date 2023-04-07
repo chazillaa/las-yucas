@@ -1,10 +1,10 @@
 require("dotenv").config()
 const express = require('express')
-const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-const userRoutes = require('./routes/users.js')
+const routes = require('./routes')
+const connection = require('./config/connection.js');
 
 const app = express()
 
@@ -12,11 +12,11 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors())
 
-app.use('/api', userRoutes)
+app.use(routes)
 
 const PORT = process.env.PORT|| 3001
 
-mongoose.once("open", () => {
+connection.once("open", () => {
   app.listen(PORT, () => {
     console.log(`Server Running on Port: http://localhost:${PORT}`)
   })
