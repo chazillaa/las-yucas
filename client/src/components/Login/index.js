@@ -18,6 +18,7 @@ const Login = () => {
         try {
             const url = 'http://localhost:3001/api/login'
             const {data: res} = await axios.post(url, data)
+            localStorage.setItem('token', res.token)
             window.location='/'
             console.log(res.message)
         } catch (error) {
