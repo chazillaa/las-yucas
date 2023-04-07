@@ -20,7 +20,6 @@ const Signup = () => {
         try {
             const url = 'http://localhost:3001/api/signup'
             const {data: res} = await axios.post(url, data)
-            localStorage.setItem('token', res.data)
             navigate('/login')
             console.log(res.message)
         } catch (error) {
