@@ -1,6 +1,3 @@
-
-
-
 const Main = () => {
 
     const handleLogout = () => {
@@ -11,7 +8,7 @@ const Main = () => {
     return(
         <div>
             <nav>
-                <h1>nav</h1>
+                <h1>MAIN</h1>
                 <button onClick={handleLogout}>
                     Logout
                 </button>

@@ -9,12 +9,11 @@ function App() {
   return (
     <div>
       <Routes>
-      {user && <Route path='/' exact element={<Main/>}/>}
+      {user && <Route path='/' exact element={<Main/>}/>} 
       <Route path='/signup' exact element={<Signup/>}/>
       <Route path='/login' exact element={<Login/>}/>
     </Routes>
     </div>
-    
   )
 }
 
