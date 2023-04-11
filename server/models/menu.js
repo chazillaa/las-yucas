@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const fs = require('fs');
+const path = require('path');
 
 const menuSchema = new Schema(
     {
@@ -52,12 +53,17 @@ const menuSchema = new Schema(
 
 menuSchema.pre("save", function (next) {
     if (this.imagePath) {
-        const imageContents = fs.readFile(this.imagePath);
+        const pathvar = path.join(__dirname,this.imagePath);
+        const imageContents = fs.readFileSync(pathvar);
         const stringImage = imageContents.toString('base64');
         this.image = new Buffer.from(stringImage, 'base64');
     }
     next();
 });
+/* 
+menuSchema.virtual("imageHTML").get(function () {
+    return this?.image
+}) */
 
 const MenuModel = model('menu', menuSchema);
 

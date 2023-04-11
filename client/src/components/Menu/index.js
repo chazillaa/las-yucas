@@ -24,11 +24,13 @@ const Menu = () => {
       <nav>
         <button onClick={handleLogout}>Logout</button>
       </nav>
-
       <h1>Menu</h1>
       {menu.map((item) => 
       <div key={item._id}>
         {item.name} {item.price}
+        <img src={`data:image/png;base64,${item.image}`} alt="a"/>
+        <br/>
+        <button> ADD </button>
         </div>
         )}
       
