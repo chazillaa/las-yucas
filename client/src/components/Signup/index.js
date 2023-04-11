@@ -22,7 +22,7 @@ const Signup = () => {
             const {data: res} = await axios.post(url, data)
             // navigate('/')
             localStorage.setItem('token', res.token)
-            window.location='/main'
+            window.location='/menu'
             console.log(res.message)
         } catch (error) {
             console.log(error)

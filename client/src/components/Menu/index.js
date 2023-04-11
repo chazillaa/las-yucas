@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Main = () => {
+const Menu = () => {
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location = "/login";
@@ -12,7 +13,7 @@ const Main = () => {
   useEffect(() => {
     const menuData = async () => {
       const res = await axios.get("http://localhost:3001/api/menu");
-      console.log(res.data.map((item) => item.name));
+      console.log(res.data);
       setMenu(res.data);
     };
     menuData();
@@ -26,7 +27,7 @@ const Main = () => {
 
       <h1>Menu</h1>
       {menu.map((item) => 
-      <div>
+      <div key={item._id}>
         {item.name} {item.price}
         </div>
         )}
@@ -35,7 +36,7 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Menu;
 
 
 //<Menu item={item}/>
