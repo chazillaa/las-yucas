@@ -18,7 +18,8 @@ const Login = () => {
         try {
             const url = 'http://localhost:3001/api/login'
             const {data: res} = await axios.post(url, data)
-            window.location='/'
+            localStorage.setItem('token', res.token)
+            window.location='/menu'
             console.log(res.message)
         } catch (error) {
             console.log(error)
@@ -50,7 +51,7 @@ const Login = () => {
                                 className
                             />
                             <input
-                                type='pasword'
+                                type='password'
                                 placeholder='password'
                                 name='password'
                                 onChange={handleChange}

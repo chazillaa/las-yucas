@@ -3,7 +3,6 @@ const fs = require('fs');
 
 const menuSchema = new Schema(
     {
-
         name: {
             type: String,
             required: true,
