@@ -1,35 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-// const Menu = () => {
-
-//     const [menu, setMenu] = useState([
-//         {
-//             name: '',
-//             price: ''
-//         }
-//     ])
-
-//     useEffect(() => {
-//         axios.get('http://localhost:3001/api/menu')
-//         .then((res) => {
-//             res.json()
-//         })
-//         .then((jsonRes) = setMenu(jsonRes))
-//     })
-
-//     return(
-//         <div>
-//             <h1>MENU</h1>
-//             <div>
-
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default Menu
-
 const Main = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
