@@ -9,10 +9,10 @@ function App() {
   return (
     <div>
       <Routes>
-      {user && <Route path='/main' exact element={<Menu/>}/>}
-      <Route path='/signup' exact element={<Signup/>}/>
-      <Route path='/login' exact element={<Login/>}/>
-    </Routes>
+        {user && <Route path='/menu' exact element={<Menu/>}/>}
+        <Route path='/signup' exact element={<Signup/>}/>
+        <Route path='/login' exact element={<Login/>}/>
+      </Routes>
     </div>
     
   )
