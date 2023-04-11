@@ -13,14 +13,19 @@ const Signup = () => {
         setData({...data, [input.name]: input.value})
     }
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
             const url = 'http://localhost:3001/api/signup'
             const {data: res} = await axios.post(url, data)
+
+            // navigate('/')
+            localStorage.setItem('token', res.token)
+            window.location='/'
             navigate('/login')
+
             console.log(res.message)
         } catch (error) {
             console.log(error)
@@ -61,7 +66,7 @@ const Signup = () => {
                                 className
                             />
                             <input
-                                type='pasword'
+                                type='password'
                                 placeholder='password'
                                 name='password'
                                 onChange={handleChange}

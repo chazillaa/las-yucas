@@ -1,6 +1,6 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
-import Main from './components/Main'
+import Menu from './components/Menu'
 import Signup from './components/Signup'
 import Login from './components/Login'
 
@@ -9,10 +9,10 @@ function App() {
   return (
     <div>
       <Routes>
-      {user && <Route path='/' exact element={<Main/>}/>}
-      <Route path='/signup' exact element={<Signup/>}/>
-      <Route path='/login' exact element={<Login/>}/>
-    </Routes>
+        {user && <Route path='/menu' exact element={<Menu/>}/>}
+        <Route path='/signup' exact element={<Signup/>}/>
+        <Route path='/login' exact element={<Login/>}/>
+      </Routes>
     </div>
     
   )
