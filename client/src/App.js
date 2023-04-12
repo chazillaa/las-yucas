@@ -14,7 +14,6 @@ function App() {
          <Navbar />
         <Routes>
           <Route path='/' exact element={<Home/>}/>
-          <Route path='/menu'></Route>
           {user && <Route path='/menu' exact element={<Menu/>}/>}
           <Route path='/signup' exact element={<Signup/>}/>
           <Route path='/login' exact element={<Login/>}/>

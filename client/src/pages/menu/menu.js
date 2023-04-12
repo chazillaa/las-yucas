@@ -3,11 +3,6 @@ import axios from "axios";
 
 const Menu = () => {
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location = "/login";
-  };
-
   const [menu, setMenu] = useState([]);
 
 //   const [cart, addCart] = useState('')
@@ -51,10 +46,6 @@ const Menu = () => {
 
   return (
     <div>
-      <nav>
-        <button onClick={handleLogout}>Logout</button>
-
-      </nav>
       <h1>Menu</h1>
       <ul>
       {menu.map((item) => 
