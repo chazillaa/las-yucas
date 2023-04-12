@@ -13,7 +13,7 @@ const Signup = () => {
         setData({...data, [input.name]: input.value})
     }
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         event.preventDefault()

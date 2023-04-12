@@ -16,7 +16,7 @@ const seedDatabase = async () => {
   await connection.once('open', async () => {
     const menuIngredientsCasted = menuData.map(x => {
       return {
-        _id: new mongoose.Types.ObjectId(x._id.$oid),
+        //_id: new mongoose.Types.ObjectId(x._id.$oid),
         name: x.name,
         price: x.price,
       }

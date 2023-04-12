@@ -1,13 +1,11 @@
 const { Ingredients, Menu, ShoppingCart } = require('../models');
-const {Schema} = require('mongoose')
+const mongoose = require('mongoose')
 
 module.exports = {
     //need middleware to determine if logged in or not
     async getCart(req, res) {
         const cart = await ShoppingCart.findOne({
-            where: {
-                user: req.userId
-            }
+            user: req.userId
         });
 
         if (cart) {
@@ -17,9 +15,7 @@ module.exports = {
     },
     async getItemFromCart(req, res) {
         const cart = await ShoppingCart.findOne({
-            where: {
-                user: req.userId
-            }
+            user: req.userId
         }).populate(
             { Menu },
             { Ingredients },
@@ -41,52 +37,57 @@ module.exports = {
     }
     */
     async postItemInCart(req, res) {
-        try{
+        try {
+            const menuItem = await Menu.findById(req.body._id)//.populate('ingredients');
 
-        
-        const menuItem = await Menu.findById(req.body._id)//.populate('ingredients');
+            const itemPrice = calculatePrice(menuItem, req.body.quantity);
 
-        const itemPrice = calculatePrice(menuItem, req.body.quantity);
+            const shopCart = await ShoppingCart.findOne({ user: new mongoose.Types.ObjectId(req.userId) });
 
-        const shopCart = await ShoppingCart.findOne({
-            where: {
-                user: req.userId,
-            }
-        });
-        if (shopCart) {
-            const updateCart = {
-                price: shopCart.price + itemPrice,
-                menuItems: shopCart.menuItems.push(req.body),
-            };
+            if (shopCart) {
+                const updateCart = {
+                    price: shopCart.price + itemPrice,
+                    menuItems: shopCart.menuItems.push(req.body),
+                };
 
-            const item = await ShoppingCart.updateOne({
-                where: {
+                const item = await ShoppingCart.updateOne({
                     user: req.userId
+                }, updateCart);
+
+                if (item) {
+                    res.status(200).json(item);
                 }
-            }, updateCart);
-
-            if (item) {
-                res.status(200).json(item);
+                else res.status(500).json({ message: "failed to add item to cart" });
             }
-            else res.status(500).json({ message: "failed to add item to cart" });
-        }
-        else {
-            const cartItem = {
-                user:req.userId,
-                price: itemPrice,
-                menuItem: [req.body]
-            };
+            else {
+                const cartItem = {
+                    user: req.userId,
+                    price: itemPrice,
+                    menuItems: [{
+                        menuItem: new mongoose.Types.ObjectId(req.body._id),
+                        quantity: req.body.quantity
+                    }]
+                };
 
-            const item = await ShoppingCart.create(cartItem);
-            if (item) {
-                res.status(200).json(item);
+                // const cartMenu = {
+                //     _id: new mongoose.Types.ObjectId(req.body._id),
+                //     quantity: req.body.quantity
+                // };
+
+                const item = await ShoppingCart.create(cartItem);
+                // const itemWMenu = await ShoppingCart.updateOne({ _id: item._id },
+                //     { $push: { menuItems: cartMenu } }
+                // )
+
+                if (item) {
+                    res.status(200).json(item);
+                }
+                else res.status(500).json({ message: "failed to add item to cart" });
             }
-            else res.status(500).json({ message: "failed to add item to cart" });
         }
-    }
-    catch(err){
-        res.status(500).json(err);
-    }
+        catch (err) {
+            res.status(500).json(err);
+        }
     },
 
     /* Only items that changed
@@ -100,25 +101,21 @@ module.exports = {
     */
     async putItemInCart(req, res) {
         const shopCart = await ShoppingCart.fidnOne({
-            where: {
-                user: req.userId,
-                "menuItems._id": req.body._idCart,
-            }
+            user: req.userId,
+            "menuItems._id": req.body._idCart,
         });
 
         if (shopCart) {
             const item = {
                 quantity: req.body.quantity,
-                selectedIngredients : req.body.selectedIngredients,
+                selectedIngredients: req.body.selectedIngredients,
             };
 
             const updateSuccess = await ShoppingCart.updateOne({
-                where: {
-                    user: req.userId,
-                    "menuItems._id": req.body._idCart,
-                }
+                user: req.userId,
+                "menuItems._id": req.body._idCart,
             }, {
-                "$set":{
+                "$set": {
                     "menuItems.$": item,
                 }
             });
@@ -135,10 +132,8 @@ module.exports = {
 
     async deleteItemInCart(req, res) {
         const item = await ShoppingCart.deleteOne({
-            where: {
-                user: req.userId,
-                "menuItems._id": req.params._idCart,
-            }
+            user: req.userId,
+            "menuItems._id": req.params._idCart,
         });
         if (item) {
             res.status(200).json(item);
