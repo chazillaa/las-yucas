@@ -10,7 +10,6 @@ function App() {
   const user = localStorage.getItem('token')
   return (
     <div>
-      
          <Navbar />
         <Routes>
           <Route path='/' exact element={<Home/>}/>
@@ -18,10 +17,7 @@ function App() {
           <Route path='/signup' exact element={<Signup/>}/>
           <Route path='/login' exact element={<Login/>}/>
         </Routes>
-      
-      
     </div>
-    
   )
 }
 
