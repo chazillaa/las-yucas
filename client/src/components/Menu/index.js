@@ -10,6 +10,8 @@ const Menu = () => {
 
   const [menu, setMenu] = useState([]);
 
+//   const [cart, addCart] = useState('')
+
   useEffect(() => {
     const menuData = async () => {
       const res = await axios.get("http://localhost:3001/api/menu");
@@ -19,21 +21,51 @@ const Menu = () => {
     menuData();
   }, []);
 
+  const addToCart =(event) => {
+    event.preventDefault()
+    console.log(event)
+    const postCart = async (data) => {
+        try {
+
+            // const tokenKey = axios.post(
+            //     url,
+
+            // )
+
+            const url = `http://localhost:3001/api/cart`
+            const {data: res} = await axios.post(url, data, {headers: { Authorization:'Bearer ' + localStorage.getItem('token') }}
+            )
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const itemData = {
+        _id:event.target.parentNode.dataset.itemId,
+        quantity:1
+    }
+
+    postCart(itemData)
+  }
+  
+
   return (
     <div>
       <nav>
         <button onClick={handleLogout}>Logout</button>
+
       </nav>
       <h1>Menu</h1>
+      <ul>
       {menu.map((item) => 
-      <div key={item._id}>
+      <li key={item._id} data-item-id={item._id}>
         {item.name} {item.price}
         <img src={`data:image/png;base64,${item.image}`} alt="a"/>
         <br/>
-        <button> ADD </button>
-        </div>
+        <button onClick={addToCart}> ADD </button>
+        </li>
         )}
-      
+        </ul>
     </div>
   );
 };

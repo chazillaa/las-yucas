@@ -1,4 +1,5 @@
 const { Ingredients, Menu, ShoppingCart } = require('../models');
+const {Schema} = require('mongoose')
 
 module.exports = {
     //need middleware to determine if logged in or not
@@ -40,9 +41,10 @@ module.exports = {
     }
     */
     async postItemInCart(req, res) {
-        const menuItem = await Menu.findById({
-            where: { _id: req.body._id }
-        }).populate('ingredients');
+        try{
+
+        
+        const menuItem = await Menu.findById(req.body._id)//.populate('ingredients');
 
         const itemPrice = calculatePrice(menuItem, req.body.quantity);
 
@@ -70,7 +72,7 @@ module.exports = {
         }
         else {
             const cartItem = {
-                user: req.userId,
+                user:req.userId,
                 price: itemPrice,
                 menuItem: [req.body]
             };
@@ -81,6 +83,10 @@ module.exports = {
             }
             else res.status(500).json({ message: "failed to add item to cart" });
         }
+    }
+    catch(err){
+        res.status(500).json(err);
+    }
     },
 
     /* Only items that changed
