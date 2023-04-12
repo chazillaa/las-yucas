@@ -13,7 +13,7 @@ const Signup = () => {
         setData({...data, [input.name]: input.value})
     }
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -39,7 +39,7 @@ const Signup = () => {
                     <div>
                         <h1>Sign In</h1>
                         <Link to='/login'>
-                        <button type='button' className>
+                        <button type='button' className='btn btn-success mb-5'>
                             Sign In
                         </button>
                         </Link>
@@ -74,7 +74,7 @@ const Signup = () => {
                                 required
                                 className
                             />
-                            <button type='submit' className>
+                            <button type='submit' className='btn btn-success mb-5'>
                                 Sign Up
                             </button>
                         </form>

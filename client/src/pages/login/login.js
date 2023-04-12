@@ -33,7 +33,7 @@ const Login = () => {
                     <div>
                         <h1>Sign Up</h1>
                         <Link to='/signup'>
-                        <button type='button' className>
+                        <button type='button' className='btn btn-success mb-5'>
                             Sign Up
                         </button>
                         </Link>
@@ -59,7 +59,7 @@ const Login = () => {
                                 required
                                 className
                             />
-                            <button type='submit' className>
+                            <button type='submit' className='btn btn-success mb-5'>
                                 Login
                             </button>
                         </form>

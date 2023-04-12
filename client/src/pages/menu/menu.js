@@ -16,7 +16,7 @@ const Menu = () => {
     menuData();
   }, []);
 
-  const addToCart =(event) => {
+  const addToCart = (event) => {
     event.preventDefault()
     console.log(event)
     const postCart = async (data) => {
