@@ -50,7 +50,6 @@ const menuSchema = new Schema(
 
     <img src={`data:image/png;base64,${props.postImgBase64}`} alt="a"/>
 */
-
 menuSchema.pre("save", function (next) {
     if (this.imagePath) {
         const pathvar = path.join(__dirname,this.imagePath);
