@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = () => {
     return <div>
-        <div className="is-primary">
+        <div className="links">
             <div>Welcome to the homepage</div>
         </div>
     </div>

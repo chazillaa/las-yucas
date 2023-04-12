@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const Signup = () => {
@@ -20,12 +20,8 @@ const Signup = () => {
         try {
             const url = 'http://localhost:3001/api/signup'
             const {data: res} = await axios.post(url, data)
-
-            // navigate('/')
             localStorage.setItem('token', res.token)
             window.location='/'
-            navigate('/login')
-
             console.log(res.message)
         } catch (error) {
             console.log(error)
@@ -36,14 +32,6 @@ const Signup = () => {
         <div className>
             <div className>
                 <div className>
-                    <div>
-                        <h1>Sign In</h1>
-                        <Link to='/login'>
-                        <button type='button' className='btn btn-success mb-5'>
-                            Sign In
-                        </button>
-                        </Link>
-                    </div>
                     <div>
                         <form className onSubmit={handleSubmit}>
                             <h1>Sign Up</h1>
@@ -74,12 +62,11 @@ const Signup = () => {
                                 required
                                 className
                             />
-                            <button type='submit' className='btn btn-success mb-5'>
+                            <button type='submit' className='btn btn-success'>
                                 Sign Up
                             </button>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>

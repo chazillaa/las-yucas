@@ -31,14 +31,6 @@ const Login = () => {
             <div className>
                 <div className>
                     <div>
-                        <h1>Sign Up</h1>
-                        <Link to='/signup'>
-                        <button type='button' className='btn btn-success mb-5'>
-                            Sign Up
-                        </button>
-                        </Link>
-                    </div>
-                    <div>
                         <form className onSubmit={handleSubmit}>
                             <h1>Login</h1>
                             <input
@@ -59,10 +51,13 @@ const Login = () => {
                                 required
                                 className
                             />
-                            <button type='submit' className='btn btn-success mb-5'>
+                            <button type='submit' className='btn btn-success'>
                                 Login
                             </button>
                         </form>
+                        <Link to='/signup'>
+                        Dont have an account? Sign up Here.
+                        </Link>
                     </div>
 
                 </div>
