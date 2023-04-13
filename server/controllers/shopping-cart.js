@@ -47,12 +47,18 @@ module.exports = {
             if (shopCart) {
                 const updateCart = {
                     price: shopCart.price + itemPrice,
-                    menuItems: shopCart.menuItems.push(req.body),
                 };
 
-                const item = await ShoppingCart.updateOne({
-                    user: req.userId
-                }, updateCart);
+                const item = await ShoppingCart.updateOne({ user: new mongoose.Types.ObjectId(req.userId) },
+                    {
+                        price:updateCart.price,
+                        $push: {
+                            menuItems: {
+                                quantity: req.body.quantity,
+                                menuItem: new mongoose.Types.ObjectId(req.body._id),
+                            },
+                        },
+                    })
 
                 if (item) {
                     res.status(200).json(item);
