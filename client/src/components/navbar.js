@@ -28,7 +28,7 @@ export const Navbar = () => {
           <a className="navbar-brand">
             Las Yucas
           </a>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="navbar-right" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link to="/">
