@@ -22,8 +22,8 @@ const Menu = () => {
     const postCart = async (data) => {
         try {
             const url = `http://localhost:3001/api/cart`
-            const {data: res} = await axios.post(url, data, {headers: { Authorization:'Bearer ' + localStorage.getItem('token') }}
-            )
+            const {data: res} = await axios.post(url, data, {headers: { Authorization:'Bearer ' + localStorage.getItem('token') }})
+            console.log(res)//this line should be where the code calls a useState to update the cart count
         } catch (err) {
             console.log(err)
         }

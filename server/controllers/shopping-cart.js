@@ -61,7 +61,7 @@ module.exports = {
                     })
 
                 if (item) {
-                    res.status(200).json(item);
+                    res.status(200).json({count:shopCart.menuItems.length + 1});
                 }
                 else res.status(500).json({ message: "failed to add item to cart" });
             }
