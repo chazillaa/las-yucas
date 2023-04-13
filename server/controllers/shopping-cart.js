@@ -148,7 +148,10 @@ module.exports = {
                 }
             });
         if (item) {
-            res.status(200).json(item);
+            const count = await ShoppingCart.find({
+                user: new mongoose.Types.ObjectId(req.userId)
+            })
+            res.status(200).json({count: count.menuItems.length});
         }
         else res.status(500).json({ message: "unable to delete item" });
     },
