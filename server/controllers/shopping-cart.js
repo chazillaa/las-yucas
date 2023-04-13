@@ -137,12 +137,15 @@ module.exports = {
     },
 
     async deleteItemInCart(req, res) {
-        const item = await ShoppingCart.deleteOne(
+        const item = await ShoppingCart.updateMany(
             {
                 user: req.userId,
+                // menuItems:{_id: new mongoose.Types.ObjectId(req.params._idCart)}
             },
             {
-                "menuItems._id": req.params._idCart,
+                $pull: {
+                    menuItems:{_id: new mongoose.Types.ObjectId(req.body._idCart)},
+                }
             });
         if (item) {
             res.status(200).json(item);
