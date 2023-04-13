@@ -13,8 +13,6 @@ const Signup = () => {
     setData({ ...data, [input.name]: input.value });
   };
 
-//   const navigate = useNavigate();
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -30,48 +28,8 @@ const Signup = () => {
 
   return (
     <div className>
-      {/* <div className>
-        <div className>
-          <div>
-            <form className onSubmit={handleSubmit}>
-              <h1>Sign Up</h1>
-              <input
-                type="text"
-                placeholder="username"
-                name="username"
-                onChange={handleChange}
-                value={data.username}
-                required
-                className
-              />
-              <input
-                type="email"
-                placeholder="email"
-                name="email"
-                onChange={handleChange}
-                value={data.email}
-                required
-                className
-              />
-              <input
-                type="password"
-                placeholder="password"
-                name="password"
-                onChange={handleChange}
-                value={data.password}
-                required
-                className
-              />
-              <button type="submit" className="btn btn-success">
-                Sign Up
-              </button>
-            </form>
-          </div>
-        </div>
-      </div> */}
-
       <section className="vh-100 bg-image">
-        <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div className="mask d-flex align-items-center h-100">
           <div className="container h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
               <div className="col-12 col-md-9 col-lg-7 col-xl-6">
