@@ -5,6 +5,7 @@ import Signup from './pages/signup/signup'
 import Login from './pages/login/login'
 import { Navbar } from './components/navbar'
 import Home from './pages/home/home'
+import Cart from './pages/cart/cart'
 
 function App() {
   const user = localStorage.getItem('token')
@@ -13,9 +14,10 @@ function App() {
          <Navbar />
         <Routes>
           <Route path='/' exact element={<Home/>}/>
-          {user && <Route path='/menu' exact element={<Menu/>}/>}
-          <Route path='/signup' exact element={<Signup/>}/>
-          <Route path='/login' exact element={<Login/>}/>
+          <Route path='/menu' exact element={<Menu/>}/>
+          {user && <Route path='/cart' exact element={<Cart/>}/>}
+          {!user && <Route path='/signup' exact element={<Signup/>}/>}
+          {!user && <Route path='/login' exact element={<Login/>}/>}
         </Routes>
     </div>
   )
