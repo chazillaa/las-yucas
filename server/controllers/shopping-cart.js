@@ -51,7 +51,7 @@ module.exports = {
 
                 const item = await ShoppingCart.updateOne({ user: new mongoose.Types.ObjectId(req.userId) },
                     {
-                        price:updateCart.price,
+                        price: updateCart.price,
                         $push: {
                             menuItems: {
                                 quantity: req.body.quantity,
@@ -61,7 +61,7 @@ module.exports = {
                     })
 
                 if (item) {
-                    res.status(200).json({count:shopCart.menuItems.length + 1});
+                    res.status(200).json({ count: shopCart.menuItems.length + 1 });
                 }
                 else res.status(500).json({ message: "failed to add item to cart" });
             }
@@ -137,10 +137,13 @@ module.exports = {
     },
 
     async deleteItemInCart(req, res) {
-        const item = await ShoppingCart.deleteOne({
-            user: req.userId,
-            "menuItems._id": req.params._idCart,
-        });
+        const item = await ShoppingCart.deleteOne(
+            {
+                user: req.userId,
+            },
+            {
+                "menuItems._id": req.params._idCart,
+            });
         if (item) {
             res.status(200).json(item);
         }
