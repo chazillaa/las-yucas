@@ -18,7 +18,7 @@ const shoppingCartSchema = new Schema(
             type: Schema.Types.ObjectId,
             required: true,
             unique: true,
-            ref: 'users'
+            ref: 'Users'
         },
         price: {
             type: Number,

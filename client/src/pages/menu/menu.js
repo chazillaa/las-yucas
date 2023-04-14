@@ -28,7 +28,7 @@ const Menu = () => {
 
   useEffect(() => {
     const menuData = async () => {
-      const res = await axios.get("http://localhost:3001/api/menu");
+      const res = await axios.get("/api/menu");
       setMenu(res.data);
     };
     menuData();
@@ -39,7 +39,7 @@ const Menu = () => {
     console.log(event);
     const postCart = async (data) => {
         try {
-            const url = `http://localhost:3001/api/cart`
+            const url = `/api/cart`
             const {data: res} = await axios.post(url, data, {headers: { Authorization:'Bearer ' + localStorage.getItem('token') }})
             console.log(res)//this line should be where the code calls a useState to update the cart count
         } catch (err) {
@@ -48,7 +48,7 @@ const Menu = () => {
     };
 
     const itemData = {
-      _id: event.target.parentNode.dataset.itemId,
+      _id: event.target.parentNode.parentNode.parentNode.dataset.itemId,
       quantity: 1,
     };
 

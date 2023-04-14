@@ -14,17 +14,9 @@ const seedDatabase = async () => {
   
 
   await connection.once('open', async () => {
-    const menuIngredientsCasted = menuData.map(x => {
-      return {
-        //_id: new mongoose.Types.ObjectId(x._id.$oid),
-        name: x.name,
-        price: x.price,
-      }
-    })
-
+    //_id: new mongoose.Types.ObjectId(x._id.$oid),
     const ingredientsDataCasted = ingredientsData.map(x => {
       return {
-        _id: new mongoose.Types.ObjectId(x._id.$oid),
         name: x.name,
         price: x.price,
       }
@@ -35,7 +27,6 @@ const seedDatabase = async () => {
         name: x.name,
         price: x.price,
         imagePath: x.imagePath,
-        _id: x._id
       }
     })
 
@@ -43,7 +34,6 @@ const seedDatabase = async () => {
     console.log("finished creating Menu DataTransfer");
 
     await Ingredients.create(ingredientsDataCasted);
-    await Menu.create(menuIngredientsCasted);
     console.log("finished creating DataTransfer");
     process.exit(0);
   }) 

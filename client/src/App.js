@@ -9,6 +9,7 @@ import Cart from './pages/cart/cart'
 
 function App() {
   const user = localStorage.getItem('token')
+
   return (
     <div>
          <Navbar />

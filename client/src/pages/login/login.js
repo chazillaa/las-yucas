@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+//import axios from "../../utils/axios_config";
+import axios from 'axios';
 
 const Login = () => {
   const [data, setData] = useState({
@@ -16,7 +17,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const url = "http://localhost:3001/api/login";
+      const url = "/api/login";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.token);
       window.location = "/";
@@ -27,7 +28,7 @@ const Login = () => {
   };
 
   return (
-    <div className>
+    <div className=''>
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -53,7 +54,7 @@ const Login = () => {
                         </h5>
 
                         <div className="form-outline mb-4">
-                          <label className="form-label" for="form2Example17">
+                          <label className="form-label" htmlFor="form2Example17">
                             Email address
                           </label>
                           <input
@@ -68,7 +69,7 @@ const Login = () => {
                         </div>
 
                         <div className="form-outline mb-4">
-                          <label className="form-label" for="form2Example27">
+                          <label className="form-label" htmlFor="form2Example27">
                             Password
                           </label>
                           <input
