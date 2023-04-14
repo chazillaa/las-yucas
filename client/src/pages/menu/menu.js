@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
+import "./menu.css";
 import axios from "axios";
+import Modalmenu from "./menu-modal";
 
 const Menu = () => {
-  const [menu, setMenu] = useState([
-    {
-      name: "",
-      price: "",
-      image: "",
-    },
-  ]);
+  const [menu, setMenu] = useState([]);
 
-  // toggle auth for menu
+  // toggle auth 
   const [isLogged, showIsLogged] = useState(false);
 
   useEffect(() => {
@@ -24,11 +20,11 @@ const Menu = () => {
       showIsLogged(false);
     }
   }
-  // toggle auth for menu
+  // toggle auth 
 
   useEffect(() => {
     const menuData = async () => {
-      const res = await axios.get("http://localhost:3001/api/menu");
+      const res = await axios.get("/api/menu");
       setMenu(res.data);
     };
     menuData();
@@ -62,13 +58,13 @@ const Menu = () => {
         <h1 className="mb-3">Menu</h1>
       </div>
       <div>
-        <div className="col text-center container py-5">
-          <div className="col-lg-4 col-md-6 mb-4">
+        <div className="text-center container py-5">
+          <div className="row justify-content-md-center">
             {menu.map((item) => (
-              <div className="card m-3" key={item._id} data-item-id={item._id}>
+              <div className="col-sm-3 mb-6 card m-3" key={item._id} data-item-id={item.id}>
                 <div className="bg-image hover-zoom ripple">
                   <div className="card-body">
-                    <h5 className="card-title mb-3">{item.name}</h5>
+                    <h4 className="card-title mb-3">{item.name}</h4>
 
                     <img
                       src={`data:image/png;base64,${item.image}`}
@@ -76,17 +72,19 @@ const Menu = () => {
                       alt="a"
                     />
 
-                    <h6 className="mb-3">
+                    <h4 className="mb-3">
                       <strong className="text-danger">{item.price}</strong>
-                    </h6>
+                    </h4>
+
+                    
+                    <Modalmenu item={item}/>
 
                     {isLogged ? (
                       <button
                         className="m-3 btn btn-success"
                         onClick={addToCart}
                       >
-                        {" "}
-                        Add to Cart{" "}
+                        Add to Cart
                       </button>
                     ) : (
                       <div></div>

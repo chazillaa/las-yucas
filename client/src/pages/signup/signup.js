@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
+
 
 const Signup = () => {
   const [data, setData] = useState({
@@ -16,7 +17,7 @@ const Signup = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const url = "http://localhost:3001/api/signup";
+      const url = "/api/signup";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.token);
       window.location = "/";

@@ -3,60 +3,70 @@
         "name": "Tacos",
         "price": "3.25",
         "id": "1",
-        "imagePath": "../images/chicken.JPG"
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Burrito",
         "price": "9.75",
         "id": "2",
-        "imagePath": "../images/chicken.JPG"
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Nachos",
         "price": "10.25",
         "id": "3",
-        "imagePath": "../images/chicken.JPG"
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Tortas",
         "price": "10.25",
         "id": "4",
-        "imagePath": "../images/chicken.JPG"
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Cheese Dip",
         "price": "10.25",
         "id": "5",
-        "imagePath": "../images/chicken.JPG"
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Salsa",
         "price": "10.25",
         "id": "6",
-        "imagePath": "../images/chicken.JPG"
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Chips",
         "price": "10.25",
         "id": "7",
-        "imagePath": "../images/chicken.JPG"
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Soda",
         "price": "10.25",
         "id": "8",
-        "imagePath": "../images/chicken.JPG"
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Churro",
         "price": "10.25",
         "id": "9",
-        "imagePath": "../images/chicken.JPG"
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Sopa",
         "price": "10.25",
         "id": "10",
-        "imagePath": "../images/chicken.JPG"
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     }
 ]

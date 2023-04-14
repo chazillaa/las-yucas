@@ -35,7 +35,8 @@ const seedDatabase = async () => {
         name: x.name,
         price: x.price,
         imagePath: x.imagePath,
-        _id: x._id
+        _id: x._id,
+        description: x.description
       }
     })
 

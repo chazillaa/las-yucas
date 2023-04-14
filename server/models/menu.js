@@ -17,6 +17,9 @@ const menuSchema = new Schema(
         price:{
             type: Number,
         },
+        description: {
+            type: String,
+        },
         ingredients:[{
             type: Schema.Types.ObjectId,
             ref:'ingredients'
