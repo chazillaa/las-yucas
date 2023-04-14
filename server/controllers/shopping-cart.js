@@ -166,6 +166,18 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+
+    async purchaseOrder(req, res){
+        try{
+            const cart = await ShoppingCart.deleteOne({user:req.userId});
+            if(cart.deletedCount === 1)
+                res.status(200).json({success:true});
+            else res.status(401).json({failed:true});
+        }
+        catch(err){
+            res.status(500).json(err);
+        }
+    },
 };
 
 function calculatePrice(item, quantity) {

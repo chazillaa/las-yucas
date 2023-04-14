@@ -6,13 +6,7 @@ const Cart = () => {
   const [userEmail, setUserEmail] = useState("test@test.com");
   const [pickupTime, setPickupTime] = useState("20-30 minutes");
   const [totalWithoutTax, setTotal] = useState(3200);
-  const [cartItems, setCartItems] = useState([
-    {
-      name: "",
-      price: "",
-      image: "",
-    }
-  ])
+  const [cartItems, setCartItems] = useState([  ])
   const tax = Math.ceil(totalWithoutTax * 0.08);
   const totalWithTax = totalWithoutTax + tax;
 
@@ -48,7 +42,6 @@ const Cart = () => {
 
   async function deleteFromCart(event) {
     event.preventDefault();
-    console.log(event);
     const deleteCart = async (data) => {
       try {
         const url = `/api/cart/${data}`
@@ -63,14 +56,24 @@ const Cart = () => {
     deleteCart(event.target.dataset.itemId);
   }
 
+  async function completePurchase(e){
+    e.preventDefault();
+    const url = '/api/cart/purchase';
+    const {data:res} = await axios.post(url, null,{ headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } });
+    if(res.success){
+      window.location = '/';
+    }
+  }
+
   return (
     <div>
       <div className="p-5 text-center">
         <h1 className="mb-3">Cart</h1>
       </div>
       {isLoading ? <div>Please wait while the cart loads</div> :
+      cartItems && cartItems.length > 0?
         <div>
-          <div>
+          <div> 
             {cartItems.map((item, index) => (
               <MenuItem className="col-lg-4 col-md-6 mb-4" isLogged={isLogged} item={item} deleteFromCart={deleteFromCart} />
             ))}
@@ -102,10 +105,12 @@ const Cart = () => {
                 <div>
                   Total With Tax: {totalWithTax}
                 </div>
+                <button className='btn btn-success m-3' onClick={completePurchase}>Complete Order</button>
               </div>
             </div>
           </div>
         </div>
+        :<div>Need to add items to your cart</div>
       }
     </div>
   )
