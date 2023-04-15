@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //import axios from "../../utils/axios_config";
 import axios from 'axios';
 
-const Login = () => {
+const Login = (props) => {
 
   const [data, setData] = useState({
     username: "",
     email: "",
     password: "",
   });
-
+  let nav = useNavigate();
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
@@ -21,7 +21,8 @@ const Login = () => {
       const url = "/api/login";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.token);
-      return redirect("/");
+      props.setLogin(true);
+      nav("/");
       console.log(res.message);
     } catch (error) {
       console.log(error);
