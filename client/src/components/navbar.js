@@ -29,7 +29,9 @@ export const Navbar = (props) => {
       <nav className="navbar navbar-expand-lg bg-light navbar-static">
         <div className="container-fluid">
           <a className="navbar-brand">
+          <Link to="/">
             <img src="/LAS-YUCAS.png" />
+            </Link>
           </a>
           <div className="navbar-right" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">

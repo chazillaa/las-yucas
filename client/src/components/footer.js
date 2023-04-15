@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="stick">
       <div className="container">
         <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
-          <div className="col-md-4 mb-0 text-body-secondary">
+          <div className="mb-0 text-body-secondary">
             &copy; 2023 Las Yucas, Inc
           </div>
 
@@ -16,7 +16,6 @@ const Footer = () => {
           ></div>
 
           <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
-
             <li className="ms-3">
                 <a href="https://twitter.com/lasyucasta93642">
               <svg
