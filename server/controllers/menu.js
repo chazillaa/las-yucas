@@ -1,4 +1,4 @@
-const { Ingredients, Menu, ShoppingCart } = require('../models');
+const { Menu } = require('../models');
 
 module.exports = {
     async getMenu(req, res){
