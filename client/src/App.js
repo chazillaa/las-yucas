@@ -5,19 +5,31 @@ import Signup from './pages/signup/signup'
 import Login from './pages/login/login'
 import { Navbar } from './components/navbar'
 import Home from './pages/home/home'
+import Cart from './pages/cart/cart'
+import Footer from './components/footer'
+import React, { useState } from 'react';
+
 
 function App() {
   const user = localStorage.getItem('token')
+  const [cartCount, setCartCount] = useState(0);
+
   return (
-    <div>
-         <Navbar />
-        <Routes>
-          <Route path='/' exact element={<Home/>}/>
-          <Route path='/menu' exact element={<Menu/>}/>
-          {/* {user && <Route path='/menu' exact element={<Menu/>}/>} */}
-          <Route path='/signup' exact element={<Signup/>}/>
-          <Route path='/login' exact element={<Login/>}/>
-        </Routes>
+    <div className='App'>
+      <Navbar count={cartCount}/>
+      <Routes>
+        <Route path='/' exact element={<Home />} />
+        <Route path='/menu' exact element={<Menu setCount={setCartCount} 
+        count={cartCount}
+        />} />
+        {user && <Route path='/cart' exact element={<Cart 
+        setCount={setCartCount} 
+        count={cartCount}
+        />} />}
+        {!user && <Route path='/signup' exact element={<Signup />} />}
+        {!user && <Route path='/login' exact element={<Login />} />}
+      </Routes>
+       <Footer />
     </div>
   )
 }

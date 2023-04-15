@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import './navbar.css';
+// import ShoppingCartIcon from "../../public/cart-fill.svg";
+// import Badge from "@material-ui/core/Badge";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location = "/login";
@@ -23,42 +26,69 @@ export const Navbar = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg bg-light navbar-static">
         <div className="container-fluid">
           <a className="navbar-brand">
-            Las Yucas
+            <img src="/LAS-YUCAS.png" />
           </a>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="navbar-right" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link to="/">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <div className="nav-link active">
                     <button className="btn btn-success">Home</button>
-                  </a>
+                  </div>
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link to="/menu">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <div className="nav-link active">
                     <button className="btn btn-success">Menu</button>
-                  </a>
+                  </div>
                 </Link>
               </li>
 
               <li className="nav-item">
                 {!isLogged ? (
                   <Link to="/login">
-                    <a className="nav-link active" aria-current="page" href="#">
+                    <div className="nav-link active">
                       <button className="btn btn-success">Login</button>
-                    </a>
+                    </div>
                   </Link>
                 ) : (
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <div className="nav-link active">
                     <button className="btn btn-success" onClick={handleLogout}>
                       Logout
                     </button>
-                  </a>
+                  </div>
+                )}
+              </li>
+
+              <li className="nav-item">
+                {isLogged ? (
+                  <Link to="/cart">
+                    <div className="nav-link active">
+                      <button className="btn btn-success">
+                        {props.count > 0 ? (
+                          <div>
+                            <img src="/cart-fill.svg" />
+
+                            <span
+                              className="badge badge-primary"
+                              color="primary"
+                            >
+                              {props.count}
+                            </span>
+                          </div>
+                        ) : (
+                          <img src="/cart-fill.svg" />
+                        )}
+                      </button>
+                    </div>
+                  </Link>
+                ) : (
+                  <div></div>
                 )}
               </li>
             </ul>

@@ -3,51 +3,70 @@
         "name": "Tacos",
         "price": "3.25",
         "id": "1",
-        "imagePath": "../images/chicken.JPG"
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Burrito",
         "price": "9.75",
-        "id": "2"
+        "id": "2",
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Nachos",
         "price": "10.25",
-        "id": "3"
+        "id": "3",
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Tortas",
         "price": "10.25",
-        "id": "4"
+        "id": "4",
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Chips and Queso",
         "price": "6.50",
-        "id": "5"
+        "id": "5",
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Chips and Salsa",
         "price": "5.50",
-        "id": "6"
+        "id": "6",
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Quesodilla",
         "price": "10.25",
-        "id": "7"
+        "id": "7",
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Horchata",
         "price": "2.50",
-        "id": "8"
+        "id": "8",
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Churro",
         "price": "3.50",
-        "id": "9"
+        "id": "9",
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     },
     {
         "name": "Sopa",
         "price": "8.75",
-        "id": "10"
+        "id": "10",
+        "imagePath": "../images/chicken.JPG",
+        "description": "THIS IS A DESCRIPTION"
     }
 ]

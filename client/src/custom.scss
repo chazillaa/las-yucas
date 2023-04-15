@@ -3,13 +3,11 @@
 // custom
 $primary: #f00;
 $secondary: #0f0;
-$dark: #300;
-$light: #fdd;
+$dark: rgb(155, 155, 155);
+$light: rgb(189, 138, 138);
 $success: #0fa;
 $info: #555;
 $warning: #ff0;
-$danger: #f00;
-
-
+$danger: rgb(255, 38, 0);
 
 @import '~bootstrap/scss/bootstrap.scss'

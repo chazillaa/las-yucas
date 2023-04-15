@@ -1,0 +1,27 @@
+.checkout-window{
+    position:fixed;
+    top:0px;
+    right:0px;
+    margin-top:70px;
+    height:100%;
+    border-left: 1px solid lightgrey;
+}
+
+.container{
+    width:60%;
+    padding-right:150px;
+}
+
+.checkout{
+    min-width: 300px;
+    max-width: 450px;
+}
+
+.checkout-static{ 
+    font-weight:bold;
+    display:block;
+}
+
+.checkout-first-element{
+    margin-top:75px;
+}

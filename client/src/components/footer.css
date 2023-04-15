@@ -1,0 +1,6 @@
+.stick{
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  box-sizing: border-box;
+}

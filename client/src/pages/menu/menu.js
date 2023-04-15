@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import "./menu.css";
 import axios from "axios";
+import Modalmenu from "./menu-modal";
 
-const Menu = () => {
+const Menu = (props) => {
   const [menu, setMenu] = useState([]);
 
-  // toggle auth for menu
+  // toggle auth 
   const [isLogged, showIsLogged] = useState(false);
 
   useEffect(() => {
@@ -18,13 +20,11 @@ const Menu = () => {
       showIsLogged(false);
     }
   }
-  // toggle auth for menu
-
+  // toggle auth 
 
   useEffect(() => {
     const menuData = async () => {
-      const res = await axios.get("http://localhost:3001/api/menu");
-      console.log(res.data);
+      const res = await axios.get("/api/menu");
       setMenu(res.data);
     };
     menuData();
@@ -34,18 +34,17 @@ const Menu = () => {
     event.preventDefault();
     console.log(event);
     const postCart = async (data) => {
-      try {
-        const url = `http://localhost:3001/api/cart`;
-        const { data: res } = await axios.post(url, data, {
-          headers: { Authorization: "Bearer " + localStorage.getItem("token") },
-        });
-      } catch (err) {
-        console.log(err);
-      }
+        try {
+            const url = `/api/cart`
+            const {data: res} = await axios.post(url, data, {headers: { Authorization:'Bearer ' + localStorage.getItem('token') }})
+            props.setCount(res.count);//this line should be where the code calls a useState to update the cart count
+        } catch (err) {
+            console.log(err)
+        }
     };
 
     const itemData = {
-      _id: event.target.parentNode.dataset.itemId,
+      _id: event.target.dataset.itemId,
       quantity: 1,
     };
 
@@ -54,22 +53,49 @@ const Menu = () => {
 
   return (
     <div>
-      <h1>Menu</h1>
-      <ul>
-        {menu.map((item) => (
-          <li key={item._id} data-item-id={item._id}>
-            {item.name} {item.price}
-            <img src={`data:image/png;base64,${item.image}`} alt="a" />
-            <br />
-            {isLogged ? (
-              <button onClick={addToCart}> ADD </button>
-            ) : (
-              <div></div>
-            )}
-            {/* <button onClick={addToCart}> ADD </button> */}
-          </li>
-        ))}
-      </ul>
+      <div className="p-5 text-center">
+        <h1 className="mb-3">Menu</h1>
+      </div>
+      <div>
+        <div className="text-center container py-5">
+          <div className="row justify-content-md-center">
+            {menu.map((item) => (
+              <div className="col-sm-3 mb-6 card m-3" key={item._id} data-item-id={item.id}>
+                <div className="bg-image hover-zoom ripple">
+                  <div className="card-body">
+                    <h4 className="card-title mb-3">{item.name}</h4>
+
+                    <img
+                      src={`data:image/png;base64,${item.image}`}
+                      className="w-50 mb-3"
+                      alt="a"
+                    />
+
+                    <h4 className="mb-3">
+                      <strong className="text-danger">{item.price}</strong>
+                    </h4>
+
+                    
+                    <Modalmenu item={item}/>
+
+                    {isLogged ? (
+                      <button
+                        className="m-3 btn btn-success"
+                        data-item-id={item._id}
+                        onClick={addToCart}
+                      >
+                        Add to Cart
+                      </button>
+                    ) : (
+                      <div></div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
