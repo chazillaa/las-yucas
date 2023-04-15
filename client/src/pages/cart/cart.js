@@ -16,17 +16,17 @@ const Cart = (props) => {
   const [isLogged, showIsLogged] = useState(false);
   const [isLoading, updateLoading] = useState(true);
 
-  function checkStorage() {
-    if (!localStorage.getItem("token")) {
-      window.location = "/login"
-    }
-  };
+  // function checkStorage() {
+  //   if (!localStorage.getItem("token")) {
+  //     window.location = "/login"
+  //   }
+  // };
 
   //when cart loads grab users cart from server
   useEffect(() => {
-    checkStorage();
+    // checkStorage();
     getCart();
-  }, [deleteFromCart]);
+  }, []);
 
   async function getCart() {
     const token = localStorage.getItem('token');
@@ -55,6 +55,7 @@ const Cart = (props) => {
     };
 
     deleteCart(event.target.dataset.itemId);
+    getCart();
   }
 
   async function completePurchase(e) {

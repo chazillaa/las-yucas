@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const connection = require('../config/connection');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const { Ingredients, Meats, Menu, Sides } = require('../models');
 
 const ingredientsData = require('./ingredients.json');
