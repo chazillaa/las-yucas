@@ -5,8 +5,8 @@ module.exports = {
     //need middleware to determine if logged in or not
     async getCart(req, res) {
         const cart = await ShoppingCart.findOne({
-            user: req.userId
-        });
+            user: new mongoose.Types.ObjectId(req.userId)
+        }).lean().populate('menuItems.menuItem user');
 
         if (cart) {
             res.json(cart);
@@ -137,23 +137,46 @@ module.exports = {
     },
 
     async deleteItemInCart(req, res) {
-        const item = await ShoppingCart.updateMany(
-            {
-                user: req.userId,
-                // menuItems:{_id: new mongoose.Types.ObjectId(req.params._idCart)}
-            },
-            {
-                $pull: {
-                    menuItems:{_id: new mongoose.Types.ObjectId(req.body._idCart)},
-                }
-            });
-        if (item) {
-            const count = await ShoppingCart.find({
-                user: new mongoose.Types.ObjectId(req.userId)
-            })
-            res.status(200).json({count: count.menuItems.length});
+        try {
+            const cart = await ShoppingCart.findOne({
+                user: req.userId
+            }).populate('menuItems.menuItem');
+
+            const price = cart.price - (cart.menuItems.id(req.params.id).menuItem.price * cart.menuItems.id(req.params.id).quantity);
+
+            const item = await ShoppingCart.updateOne(
+                {
+                    user: req.userId,
+                },
+                {
+                    price:price,
+                    $pull: {
+                        menuItems: { _id: new mongoose.Types.ObjectId(req.params.id) },
+                    }
+                });
+            if (item) {
+                const count = await ShoppingCart.findOne({
+                    user: new mongoose.Types.ObjectId(req.userId)
+                })
+                res.status(200).json({ count: count.menuItems.length });
+            }
+            else res.status(500).json({ message: "unable to delete item" });
         }
-        else res.status(500).json({ message: "unable to delete item" });
+        catch (err) {
+            res.status(500).json(err);
+        }
+    },
+
+    async purchaseOrder(req, res){
+        try{
+            const cart = await ShoppingCart.deleteOne({user:req.userId});
+            if(cart.deletedCount === 1)
+                res.status(200).json({success:true});
+            else res.status(401).json({failed:true});
+        }
+        catch(err){
+            res.status(500).json(err);
+        }
     },
 };
 
