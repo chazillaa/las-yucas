@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { MenuItem } from "../../components/MenuItem";
 import './cart.css'
 import Modal from "react-bootstrap/Modal";
 
 const Cart = (props) => {
-
+  let nav = useNavigate();
   //modal 
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => {setShowModal(false);
-    return redirect('/')
+    return nav('/')
   }
 
   const [userEmail, setUserEmail] = useState("test@test.com");
