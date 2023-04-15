@@ -1,0 +1,14 @@
+.checkout-window{
+    position:fixed;
+    top:150px;
+    right:0px;
+}
+
+.container{
+    width:60%;
+    padding-right:150px;
+}
+
+.checkout{
+    font-weight:bold;
+}
