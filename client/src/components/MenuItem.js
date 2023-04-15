@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const MenuItem = (props) => {
-    
     return (
         <div className={props.className} key={`${props.item.menuItem.id}${props.index}`} >
             <div className="card m-3">
