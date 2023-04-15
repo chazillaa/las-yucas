@@ -21,33 +21,33 @@
         "id": "4"
     },
     {
-        "name": "Cheese Dip",
-        "price": "10.25",
+        "name": "Chips and Queso",
+        "price": "6.50",
         "id": "5"
     },
     {
-        "name": "Salsa",
-        "price": "10.25",
+        "name": "Chips and Salsa",
+        "price": "5.50",
         "id": "6"
     },
     {
-        "name": "Chips",
+        "name": "Quesodilla",
         "price": "10.25",
         "id": "7"
     },
     {
-        "name": "Soda",
-        "price": "10.25",
+        "name": "Horchata",
+        "price": "2.50",
         "id": "8"
     },
     {
         "name": "Churro",
-        "price": "10.25",
+        "price": "3.50",
         "id": "9"
     },
     {
         "name": "Sopa",
-        "price": "10.25",
+        "price": "8.75",
         "id": "10"
     }
 ]
