@@ -44,7 +44,7 @@ const Modalmenu = ({item}) => {
     };
 
     const itemData = {
-      _id: event.target.parentNode.dataset.itemId,
+      _id: event.target.dataset.itemId,
       quantity: 1,
     };
 
@@ -85,7 +85,7 @@ const Modalmenu = ({item}) => {
             <Modal.Footer>
               <div>
                 {isLogged ? (
-                  <button className="m-3 btn btn-success" onClick={addToCart}>
+                  <button className="m-3 btn btn-success" data-item-id={item._id}onClick={addToCart}>
                     Add to Cart
                   </button>
                 ) : (

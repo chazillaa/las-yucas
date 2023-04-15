@@ -44,7 +44,7 @@ const Menu = () => {
     };
 
     const itemData = {
-      _id: event.target.parentNode.parentNode.parentNode.dataset.itemId,
+      _id: event.target.dataset.itemId,
       quantity: 1,
     };
 
@@ -81,6 +81,7 @@ const Menu = () => {
                     {isLogged ? (
                       <button
                         className="m-3 btn btn-success"
+                        data-item-id={item._id}
                         onClick={addToCart}
                       >
                         Add to Cart
