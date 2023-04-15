@@ -28,7 +28,7 @@ const Signup = () => {
   };
 
   return (
-    <div className>
+    <div className=''>
       <section className="vh-100 bg-image">
         <div className="mask d-flex align-items-center h-100">
           <div className="container h-100">

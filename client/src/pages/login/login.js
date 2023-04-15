@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+//import axios from "../../utils/axios_config";
+import axios from 'axios';
 
 const Login = () => {
   const [data, setData] = useState({
