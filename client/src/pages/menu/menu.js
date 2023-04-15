@@ -3,7 +3,7 @@ import "./menu.css";
 import axios from "axios";
 import Modalmenu from "./menu-modal";
 
-const Menu = () => {
+const Menu = (props) => {
   const [menu, setMenu] = useState([]);
 
   // toggle auth 
@@ -37,7 +37,7 @@ const Menu = () => {
         try {
             const url = `/api/cart`
             const {data: res} = await axios.post(url, data, {headers: { Authorization:'Bearer ' + localStorage.getItem('token') }})
-            console.log(res)//this line should be where the code calls a useState to update the cart count
+            props.setCount(res.count);//this line should be where the code calls a useState to update the cart count
         } catch (err) {
             console.log(err)
         }

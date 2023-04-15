@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-// import ButtonGroup from "@material-ui/core/ButtonGroup";
-// import Badge from "@material-ui/core/Badge";
-// import Button from "@material-ui/core/Button";
-// import AddIcon from "@material-ui/icons/Add";
-// import RemoveIcon from "@material-ui/icons/Remove";
+import Badge from "@material-ui/core/Badge";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location = "/login";
@@ -17,7 +13,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     checkStorage();
-    return () => {};
+    return () => { };
   }, [isLogged]);
   function checkStorage() {
     if (localStorage.getItem("token")) {
@@ -33,7 +29,7 @@ export const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand"><img src='/LAS-YUCAS.png'/></a>
+          <a className="navbar-brand"><img src='/LAS-YUCAS.png' /></a>
           <div className="navbar-right" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
@@ -73,8 +69,11 @@ export const Navbar = () => {
                   <Link to="/cart">
                     <a className="nav-link active">
                       <button className="btn btn-success">
-                        {" "}
-                        <ShoppingCartIcon />{" "}
+                        {props.count > 0 ?
+                          <Badge color='secondary' badgeContent={props.count}>
+                            <ShoppingCartIcon />
+                          </Badge>
+                          : <ShoppingCartIcon />}
                       </button>
                     </a>
                   </Link>

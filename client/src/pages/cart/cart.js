@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import { MenuItem } from "../../components/MenuItem";
 
-const Cart = () => {
+const Cart = (props) => {
   const [userEmail, setUserEmail] = useState("test@test.com");
   const [pickupTime, setPickupTime] = useState("20-30 minutes");
   const [totalWithoutTax, setTotal] = useState(0);
@@ -24,7 +25,7 @@ const Cart = () => {
   useEffect(() => {
     checkStorage();
     getCart();
-  }, []);
+  }, [deleteFromCart]);
 
   async function getCart() {
     const token = localStorage.getItem('token');
@@ -46,8 +47,7 @@ const Cart = () => {
       try {
         const url = `/api/cart/${data}`
         const { data: res } = await axios.delete(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } })
-        console.log(res)//this line should be where the code calls a useState to update the cart count
-        window.location = '/cart'
+       props.setCount(res.count);//this line should be where the code calls a useState to update the cart count
       } catch (err) {
         console.log(err)
       }
@@ -110,7 +110,7 @@ const Cart = () => {
             </div>
           </div>
         </div>
-        :<div>Need to add items to your cart</div>
+        :<div>Your cart is currently empty. <Link to='/menu'>Go choose some food.</Link></div>
       }
     </div>
   )
