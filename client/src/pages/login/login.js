@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //import axios from "../../utils/axios_config";
 import axios from 'axios';
 
@@ -20,7 +20,7 @@ const Login = () => {
       const url = "/api/login";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.token);
-      window.location = "/";
+      useNavigate("/");
       console.log(res.message);
     } catch (error) {
       console.log(error);

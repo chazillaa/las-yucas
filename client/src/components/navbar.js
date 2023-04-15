@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './navbar.css';
 // import ShoppingCartIcon from "../../public/cart-fill.svg";
 // import Badge from "@material-ui/core/Badge";
@@ -7,7 +7,7 @@ import './navbar.css';
 export const Navbar = (props) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location = "/login";
+    useNavigate("/login");
   };
 
   const [isLogged, showIsLogged] = useState(false);

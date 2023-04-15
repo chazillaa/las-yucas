@@ -9,7 +9,6 @@ import Cart from './pages/cart/cart'
 import Footer from './components/footer'
 import React, { useState } from 'react';
 
-
 function App() {
   const user = localStorage.getItem('token')
   const [cartCount, setCartCount] = useState(0);

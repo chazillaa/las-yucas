@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { MenuItem } from "../../components/MenuItem";
 import './cart.css'
@@ -11,7 +11,7 @@ const Cart = (props) => {
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => {setShowModal(false);
-  window.location=('/')
+  useNavigate('/')
   }
 
   const [userEmail, setUserEmail] = useState("test@test.com");
@@ -25,15 +25,8 @@ const Cart = (props) => {
   const [isLogged, showIsLogged] = useState(false);
   const [isLoading, updateLoading] = useState(true);
 
-  // function checkStorage() {
-  //   if (!localStorage.getItem("token")) {
-  //     window.location = "/login"
-  //   }
-  // };
-
   //when cart loads grab users cart from server
   useEffect(() => {
-    // checkStorage();
     getCart();
   }, []);
 
