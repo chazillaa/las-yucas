@@ -83,20 +83,21 @@ const Cart = (props) => {
             </div>
             <div className="checkout-window d-flex flex-column flex-shrink-0 p-3 float-right sidebar">
               <div className='checkout position-sticky'>
-                Order for:
+                <span className='checkout-static checkout-first-element'>Order for:</span>
                 <span>{userEmail}</span>
                 <div>
-                  Order ready for pickup in: <span>{pickupTime}</span>
+                  <span className='checkout-static'>Order ready for pickup in:</span> <span>{pickupTime}</span>
                 </div>
+                <br />
                 <div>
                   <div>
-                    Total Order Amount: <span>${totalWithoutTax.toFixed(2)}</span>
+                    <span className='checkout-static'>Total Order Amount:</span> <span>${totalWithoutTax.toFixed(2)}</span>
                   </div>
                   <div>
-                    Taxes: <span>${tax.toFixed(2)}</span>
+                    <span className='checkout-static'>Taxes:</span> <span>${tax.toFixed(2)}</span>
                   </div>
                   <div>
-                    Total With Tax: <span>${totalWithTax.toFixed(2)}</span>
+                    <span className='checkout-static'>Total With Tax:</span> <span>${totalWithTax.toFixed(2)}</span>
                   </div>
                   <button className='btn btn-success m-3' onClick={completePurchase}>Complete Order</button>
                 </div>

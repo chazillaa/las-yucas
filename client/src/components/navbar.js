@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Badge from "@material-ui/core/Badge";
+import './navbar.css';
 
 export const Navbar = (props) => {
   const handleLogout = () => {
@@ -27,7 +28,7 @@ export const Navbar = (props) => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg bg-light navbar-static">
         <div className="container-fluid">
           <a className="navbar-brand"><img src='/LAS-YUCAS.png' /></a>
           <div className="navbar-right" id="navbarSupportedContent">
