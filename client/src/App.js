@@ -17,6 +17,7 @@ function App() {
   return (
     <div className='App'>
       <Navbar count={cartCount}/>
+      <div className='below-nav'>
       <Routes>
         <Route path='/' exact element={<Home />} />
         <Route path='/menu' exact element={<Menu setCount={setCartCount} 
@@ -29,6 +30,7 @@ function App() {
         {!user && <Route path='/signup' exact element={<Signup />} />}
         {!user && <Route path='/login' exact element={<Login />} />}
       </Routes>
+      </div>
        <Footer />
     </div>
   )

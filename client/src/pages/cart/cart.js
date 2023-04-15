@@ -3,8 +3,17 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import { MenuItem } from "../../components/MenuItem";
 import './cart.css'
+import Modal from "react-bootstrap/Modal";
 
 const Cart = (props) => {
+
+  //modal 
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => {setShowModal(false);
+  window.location=('/')
+  }
+
   const [userEmail, setUserEmail] = useState("test@test.com");
   const [pickupTime, setPickupTime] = useState("20-30 minutes");
   const [totalWithoutTax, setTotal] = useState(0);
@@ -63,7 +72,7 @@ const Cart = (props) => {
     const url = '/api/cart/purchase';
     const { data: res } = await axios.post(url, null, { headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } });
     if (res.success) {
-      window.location = '/';
+      handleShowModal()
     }
   }
 
@@ -75,7 +84,7 @@ const Cart = (props) => {
       {isLoading ? <div>Please wait while the cart loads</div> :
         cartItems && cartItems.length > 0 ?
           <div>
-            <div className='container'>
+            <div className='container container-cart'>
               <div className='row'>
                 {cartItems.map((item, index) => (
                   <MenuItem className="col-lg-4 col-md-6 mb-4" isLogged={isLogged} item={item} deleteFromCart={deleteFromCart} />
@@ -107,6 +116,18 @@ const Cart = (props) => {
           </div>
           : <div>Your cart is currently empty. <Link to='/menu'>Go choose some food.</Link></div>
       }
+      <Modal
+            className="myModal"
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+            show={showModal}
+            onHide={handleCloseModal}
+          >
+            <Modal.Body>
+              <h2 className="text-center">Order is on the way!</h2>
+            </Modal.Body>
+          </Modal>
     </div>
   )
 };

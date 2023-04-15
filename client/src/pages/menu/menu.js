@@ -57,7 +57,7 @@ const Menu = (props) => {
         <h1 className="mb-3">Menu</h1>
       </div>
       <div>
-        <div className="text-center container py-5">
+        <div className="text-center container py-2">
           <div className="row justify-content-md-center">
             {menu.map((item) => (
               <div className="col-sm-3 mb-6 card m-3" key={item._id} data-item-id={item.id}>

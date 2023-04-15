@@ -1,5 +1,7 @@
 .stick{
-  position: relative;
+    height: 60px;
+  background-color: bisque;
+  position: fixed;
   width: 100%;
   bottom: 0;
   box-sizing: border-box;
