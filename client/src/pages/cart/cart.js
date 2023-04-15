@@ -5,9 +5,9 @@ import { MenuItem } from "../../components/MenuItem";
 const Cart = () => {
   const [userEmail, setUserEmail] = useState("test@test.com");
   const [pickupTime, setPickupTime] = useState("20-30 minutes");
-  const [totalWithoutTax, setTotal] = useState(3200);
+  const [totalWithoutTax, setTotal] = useState(0);
   const [cartItems, setCartItems] = useState([  ])
-  const tax = Math.ceil(totalWithoutTax * 0.08);
+  const tax = Math.ceil(totalWithoutTax * 8) / 100;
   const totalWithTax = totalWithoutTax + tax;
 
   // toggle auth for menu
@@ -97,13 +97,13 @@ const Cart = () => {
               </div>
               <div>
                 <div>
-                  Total Order Amount: {totalWithoutTax}
+                  Total Order Amount: <span>{totalWithoutTax.toFixed(2)}</span>
                 </div>
                 <div>
-                  Taxes: {tax}
+                  Taxes: <span>{tax.toFixed(2)}</span>
                 </div>
                 <div>
-                  Total With Tax: {totalWithTax}
+                  Total With Tax: <span>{totalWithTax.toFixed(2)}</span>
                 </div>
                 <button className='btn btn-success m-3' onClick={completePurchase}>Complete Order</button>
               </div>
