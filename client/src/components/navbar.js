@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import './navbar.css';
 // import ShoppingCartIcon from "../../public/cart-fill.svg";
 // import Badge from "@material-ui/core/Badge";
 
 export const Navbar = (props) => {
+
   const handleLogout = () => {
     localStorage.removeItem("token");
-    useNavigate("/login");
+    return redirect('/login')
   };
 
   const [isLogged, showIsLogged] = useState(false);
