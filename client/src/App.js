@@ -6,6 +6,7 @@ import Login from './pages/login/login'
 import { Navbar } from './components/navbar'
 import Home from './pages/home/home'
 import Cart from './pages/cart/cart'
+import Footer from './components/footer'
 import React, { useState } from 'react';
 
 
@@ -14,7 +15,7 @@ function App() {
   const [cartCount, setCartCount] = useState(0);
 
   return (
-    <div>
+    <div className='App'>
       <Navbar count={cartCount}/>
       <Routes>
         <Route path='/' exact element={<Home />} />
@@ -28,6 +29,7 @@ function App() {
         {!user && <Route path='/signup' exact element={<Signup />} />}
         {!user && <Route path='/login' exact element={<Login />} />}
       </Routes>
+       <Footer />
     </div>
   )
 }
