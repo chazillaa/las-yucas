@@ -34,40 +34,40 @@ export const Navbar = (props) => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link to="/">
-                  <a className="nav-link active">
+                  <div className="nav-link active">
                     <button className="btn btn-success">Home</button>
-                  </a>
+                  </div>
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link to="/menu">
-                  <a className="nav-link active">
+                  <div className="nav-link active">
                     <button className="btn btn-success">Menu</button>
-                  </a>
+                  </div>
                 </Link>
               </li>
 
               <li className="nav-item">
                 {!isLogged ? (
                   <Link to="/login">
-                    <a className="nav-link active">
+                    <div className="nav-link active">
                       <button className="btn btn-success">Login</button>
-                    </a>
+                    </div>
                   </Link>
                 ) : (
-                  <a className="nav-link active">
+                  <div className="nav-link active">
                     <button className="btn btn-success" onClick={handleLogout}>
                       Logout
                     </button>
-                  </a>
+                  </div>
                 )}
               </li>
 
               <li className="nav-item">
                 {isLogged ? (
                   <Link to="/cart">
-                    <a className="nav-link active">
+                    <div className="nav-link active">
                       <button className="btn btn-success">
                         {props.count > 0 ?
                           <Badge color='secondary' badgeContent={props.count}>
@@ -75,7 +75,7 @@ export const Navbar = (props) => {
                           </Badge>
                           : <ShoppingCartIcon />}
                       </button>
-                    </a>
+                    </div>
                   </Link>
                 ) : (
                   <div></div>
