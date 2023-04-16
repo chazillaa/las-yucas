@@ -51,13 +51,13 @@ const Cart = (props) => {
         const url = `/api/cart/${data}`
         const { data: res } = await axios.delete(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } })
         props.setCount(res.count);//this line should be where the code calls a useState to update the cart count
+        getCart();
       } catch (err) {
         console.log(err)
       }
     };
 
     deleteCart(event.target.dataset.itemId);
-    getCart();
   }
 
   async function completePurchase(e) {
@@ -65,6 +65,7 @@ const Cart = (props) => {
     const url = '/api/cart/purchase';
     const { data: res } = await axios.post(url, null, { headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } });
     if (res.success) {
+      props.setCount(0)
       handleShowModal()
     }
   }

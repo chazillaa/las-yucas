@@ -77,7 +77,7 @@ const Menu = (props) => {
                     </h4>
 
                     
-                    <Modalmenu item={item}/>
+                    <Modalmenu setCount={props.setCount} item={item}/>
 
                     {isLogged ? (
                       <button

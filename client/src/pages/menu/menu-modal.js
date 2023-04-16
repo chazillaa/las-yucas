@@ -3,8 +3,8 @@ import Button from "react-bootstrap/Button";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Modalmenu = ({item, props}) => {
- 
+const Modalmenu = ({item, ...props}) => {
+  
   // modal 
   const x = item.id
   const [showModal, setShowModal] = useState(false);
