@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { MenuItem } from "../../components/MenuItem";
@@ -26,15 +25,8 @@ const Cart = (props) => {
   const [isLogged, showIsLogged] = useState(false);
   const [isLoading, updateLoading] = useState(true);
 
-  // function checkStorage() {
-  //   if (!localStorage.getItem("token")) {
-  //     window.location = "/login"
-  //   }
-  // };
-
   //when cart loads grab users cart from server
   useEffect(() => {
-    // checkStorage();
     getCart();
   }, []);
 
