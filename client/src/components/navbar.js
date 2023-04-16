@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link, useInRouterContext, useNavigate } from "react-router-dom";
 import './navbar.css';
 // import ShoppingCartIcon from "../../public/cart-fill.svg";
 // import Badge from "@material-ui/core/Badge";
 
 export const Navbar = (props) => {
+  let nav = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    return redirect('/login')
+    props.setLogin(false);
+    nav('/login')
   };
 
-  const [isLogged, showIsLogged] = useState(false);
 
   useEffect(() => {
     checkStorage();
     return () => {};
-  }, [isLogged]);
+  }, [props.login]);
   function checkStorage() {
     if (localStorage.getItem("token")) {
-      showIsLogged(true);
+      props.setLogin(true);
     } else {
-      showIsLogged(false);
+      props.setLogin(false);
     }
   }
 
@@ -53,7 +54,7 @@ export const Navbar = (props) => {
               </li>
 
               <li className="nav-item">
-                {!isLogged ? (
+                {!props.login ? (
                   <Link to="/login">
                     <div className="nav-link active">
                       <button className="btn btn-success">Login</button>
@@ -69,7 +70,7 @@ export const Navbar = (props) => {
               </li>
 
               <li className="nav-item">
-                {isLogged ? (
+                {props.login ? (
                   <Link to="/cart">
                     <div className="nav-link active">
                       <button className="btn btn-success">

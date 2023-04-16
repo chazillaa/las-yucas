@@ -12,10 +12,11 @@ import React, { useState } from 'react';
 function App() {
   const user = localStorage.getItem('token')
   const [cartCount, setCartCount] = useState(0);
+  const [isLogged, showIsLogged] = useState(false);
 
   return (
     <div className='App'>
-      <Navbar count={cartCount}/>
+      <Navbar count={cartCount} login={isLogged} setLogin={showIsLogged}/>
       <div className='below-nav'>
       <Routes>
         <Route path='/' exact element={<Home />} />
@@ -27,7 +28,7 @@ function App() {
         count={cartCount}
         />} />}
         {!user && <Route path='/signup' exact element={<Signup />} />}
-        {!user && <Route path='/login' exact element={<Login />} />}
+        {!user && <Route path='/login' exact element={<Login setLogin={showIsLogged}/>} />}
       </Routes>
       </div>
        <Footer />
