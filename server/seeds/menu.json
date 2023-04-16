@@ -3,70 +3,70 @@
         "name": "Tacos",
         "price": "3.25",
         "id": "1",
-        "imagePath": "../images/chicken.JPG",
-        "description": "THIS IS A DESCRIPTION"
+        "imagePath": "../images/taco.JPG",
+        "description": "We offer a wide range of taco options to suit any taste bud, including traditional favorites such as carne asada, al pastor, and pollo, as well as vegetarian and vegan options like grilled vegetables and jackfruit. Our tacos are served on warm, soft yuka tortillas and topped with a variety of fresh toppings, including cilantro, onions, avocado, and lime wedges."
     },
     {
         "name": "Burrito",
         "price": "9.75",
         "id": "2",
-        "imagePath": "../images/chicken.JPG",
-        "description": "THIS IS A DESCRIPTION"
+        "imagePath": "../images/burrito.JPG",
+        "description": "Our burritos are packed with your choice of delicious fillings, including grilled chicken, steak, shrimp, carnitas, or a vegetarian option with grilled veggies and beans. We then add savory rice, black or pinto beans, and a variety of fresh toppings such as lettuce, tomatoes, onions, cheese, and sour cream."
     },
     {
         "name": "Nachos",
         "price": "10.25",
         "id": "3",
-        "imagePath": "../images/chicken.JPG",
-        "description": "THIS IS A DESCRIPTION"
+        "imagePath": "../images/nacho.JPG",
+        "description": "Our nachos are made with crispy tortilla chips that are layered with your choice of savory meats such as beef, chicken, or pork, or a vegetarian option with grilled veggies and beans. We then add a generous amount of melted cheese, fresh toppings such as tomatoes, onions, jalapeños, and cilantro, and finish with a dollop of sour cream and guacamole."
     },
     {
         "name": "Tortas",
         "price": "10.25",
         "id": "4",
-        "imagePath": "../images/chicken.JPG",
-        "description": "THIS IS A DESCRIPTION"
+        "imagePath": "../images/torta.JPG",
+        "description": "Our tortas are made with a soft, freshly baked telera roll that is packed with your choice of savory meats such as carne asada, al pastor, or carnitas, or a vegetarian option with grilled veggies and beans. We then add a variety of fresh toppings such as lettuce, tomatoes, onions, avocado, and jalapeños, and finish with a spread of mayonnaise and refried beans."
     },
     {
-        "name": "Cheese Dip",
-        "price": "10.25",
+        "name": "Chips and Queso",
+        "price": "6.50",
         "id": "5",
-        "imagePath": "../images/chicken.JPG",
-        "description": "THIS IS A DESCRIPTION"
+        "imagePath": "../images/queso.JPG",
+        "description": "Our chips and queso feature crispy tortilla chips that are served warm and paired with a creamy and delicious queso dip. Our queso is made with a blend of melted cheese, diced tomatoes, and jalapeños, and is seasoned to perfection. "
     },
     {
-        "name": "Salsa",
-        "price": "10.25",
+        "name": "Chips and Salsa",
+        "price": "5.50",
         "id": "6",
-        "imagePath": "../images/chicken.JPG",
-        "description": "THIS IS A DESCRIPTION"
+        "imagePath": "../images/salsa.JPG",
+        "description": "Our chips and salsa feature crispy tortilla chips that are paired with a delicious salsa dip. Our salsa is made with a blend of ripe tomatoes, onions, cilantro, and jalapeños."
     },
     {
-        "name": "Chips",
+        "name": "Quesodilla",
         "price": "10.25",
         "id": "7",
-        "imagePath": "../images/chicken.JPG",
-        "description": "THIS IS A DESCRIPTION"
+        "imagePath": "../images/quesodilla.JPG",
+        "description": "Our quesadillas are made with a crispy flour tortilla and filled with your choice of meats such as chicken, beef, or pork, or a vegetarian option with grilled veggies and beans. We then add a generous amount of melted cheese and fold the tortilla in half, grilling it until the cheese is melted and bubbly"
     },
     {
-        "name": "Soda",
-        "price": "10.25",
+        "name": "Horchata",
+        "price": "2.50",
         "id": "8",
-        "imagePath": "../images/chicken.JPG",
-        "description": "THIS IS A DESCRIPTION"
+        "imagePath": "../images/horchata.JPG",
+        "description": "Our horchata is made with a blend of rice, cinnamon, vanilla, and sugar, resulting in a sweet and creamy drink that is perfect for a hot summer day. We use high-quality ingredients and traditional recipes to ensure that our horchata is the best you'll find anywhere."
     },
     {
         "name": "Churro",
-        "price": "10.25",
+        "price": "3.50",
         "id": "9",
-        "imagePath": "../images/chicken.JPG",
-        "description": "THIS IS A DESCRIPTION"
+        "imagePath": "../images/churro.JPG",
+        "description": "Our churros are made with a traditional Mexican recipe, using flour, water, and a hint of cinnamon. We then fry them until they are crispy and golden brown, and coat them in a mixture of sugar and cinnamon for the perfect sweetness."
     },
     {
         "name": "Sopa",
-        "price": "10.25",
+        "price": "8.75",
         "id": "10",
-        "imagePath": "../images/chicken.JPG",
-        "description": "THIS IS A DESCRIPTION"
+        "imagePath": "../images/sopa.JPG",
+        "description": "Our sopa is made with a rich and flavorful broth, filled with tender pieces of chicken or beef, fresh vegetables, and a variety of spices. We then add a generous amount of noodles or rice, creating a delicious and filling meal."
     }
 ]
