@@ -21,43 +21,43 @@
         "description": "Our nachos are made with crispy tortilla chips that are layered with your choice of savory meats such as beef, chicken, or pork, or a vegetarian option with grilled veggies and beans. We then add a generous amount of melted cheese, fresh toppings such as tomatoes, onions, jalapeños, and cilantro, and finish with a dollop of sour cream and guacamole."
     },
     {
-        "name": "Tortas",
+        "name": "Yuca Fries",
         "price": "10.25",
         "id": "4",
-        "imagePath": "../images/torta.JPG",
-        "description": "Our tortas are made with a soft, freshly baked telera roll that is packed with your choice of savory meats such as carne asada, al pastor, or carnitas, or a vegetarian option with grilled veggies and beans. We then add a variety of fresh toppings such as lettuce, tomatoes, onions, avocado, and jalapeños, and finish with a spread of mayonnaise and refried beans."
+        "imagePath": "../images/fries.JPG",
+        "description": "Yucca fries are a crispy and flavorful alternative to traditional potato fries, made from the root of the yucca plant which is commonly found in Latin American and Caribbean cuisine. They are often seasoned with salt and served as a side dish or snack."
     },
     {
-        "name": "Chips and Queso",
-        "price": "6.50",
+        "name": "Chips & Queso",
+        "price": "6.59",
         "id": "5",
         "imagePath": "../images/queso.JPG",
         "description": "Our chips and queso feature crispy tortilla chips that are served warm and paired with a creamy and delicious queso dip. Our queso is made with a blend of melted cheese, diced tomatoes, and jalapeños, and is seasoned to perfection. "
     },
     {
-        "name": "Chips and Salsa",
-        "price": "5.50",
+        "name": "Chips & Salsa",
+        "price": "5.59",
         "id": "6",
         "imagePath": "../images/salsa.JPG",
         "description": "Our chips and salsa feature crispy tortilla chips that are paired with a delicious salsa dip. Our salsa is made with a blend of ripe tomatoes, onions, cilantro, and jalapeños."
     },
     {
-        "name": "Quesodilla",
+        "name": "Quesadilla",
         "price": "10.25",
         "id": "7",
-        "imagePath": "../images/quesodilla.JPG",
+        "imagePath": "../images/quesadilla.JPG",
         "description": "Our quesadillas are made with a crispy flour tortilla and filled with your choice of meats such as chicken, beef, or pork, or a vegetarian option with grilled veggies and beans. We then add a generous amount of melted cheese and fold the tortilla in half, grilling it until the cheese is melted and bubbly"
     },
     {
         "name": "Horchata",
-        "price": "2.50",
+        "price": "2.59",
         "id": "8",
         "imagePath": "../images/horchata.JPG",
         "description": "Our horchata is made with a blend of rice, cinnamon, vanilla, and sugar, resulting in a sweet and creamy drink that is perfect for a hot summer day. We use high-quality ingredients and traditional recipes to ensure that our horchata is the best you'll find anywhere."
     },
     {
         "name": "Churro",
-        "price": "3.50",
+        "price": "3.59",
         "id": "9",
         "imagePath": "../images/churro.JPG",
         "description": "Our churros are made with a traditional Mexican recipe, using flour, water, and a hint of cinnamon. We then fry them until they are crispy and golden brown, and coat them in a mixture of sugar and cinnamon for the perfect sweetness."
