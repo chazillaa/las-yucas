@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useInRouterContext, useNavigate } from "react-router-dom";
 import './navbar.css';
-// import ShoppingCartIcon from "../../public/cart-fill.svg";
-// import Badge from "@material-ui/core/Badge";
 
 export const Navbar = (props) => {
   let nav = useNavigate();

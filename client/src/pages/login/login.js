@@ -39,7 +39,7 @@ const Login = (props) => {
                 <div className="row g-0">
                   <div className="col-md-6 col-lg-5 d-none d-md-block">
                     <img
-                      src="https://media.istockphoto.com/id/525498478/photo/happy-couple-eating-at-a-restaurant.jpg?s=612x612&w=0&k=20&c=7aZnDRgLLnqf5gfkviAC2T6tFJWLUqF6eEbJNKDkQ20="
+                      src="https://thegirlonbloor.com/wp-content/uploads/2022/10/Crockpot-beef-tacos-8.jpg"
                       alt="login form"
                       className="img-fluid"
                     />

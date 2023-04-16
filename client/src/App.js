@@ -17,7 +17,7 @@ function App() {
   return (
     <div className='App'>
       <Navbar count={cartCount} login={isLogged} setLogin={showIsLogged}/>
-      <div className='below-nav'>
+      <div className='below-nav above-footer'>
       <Routes>
         <Route path='/' exact element={<Home />} />
         <Route path='/menu' exact element={<Menu setCount={setCartCount} 

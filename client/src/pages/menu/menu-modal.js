@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Modalmenu = ({item}) => {
+const Modalmenu = ({item, props}) => {
  
   // modal 
   const x = item.id
@@ -33,14 +33,13 @@ const Modalmenu = ({item}) => {
     event.preventDefault();
     console.log(event);
     const postCart = async (data) => {
-      try {
-        const url = `http://localhost:3001/api/cart`;
-        const { data: res } = await axios.post(url, data, {
-          headers: { Authorization: "Bearer " + localStorage.getItem("token") },
-        });
-      } catch (err) {
-        console.log(err);
-      }
+        try {
+            const url = `/api/cart`
+            const {data: res} = await axios.post(url, data, {headers: { Authorization:'Bearer ' + localStorage.getItem('token') }})
+            props.setCount(res.count);//this line should be where the code calls a useState to update the cart count
+        } catch (err) {
+            console.log(err)
+        }
     };
 
     const itemData = {
@@ -68,12 +67,12 @@ const Modalmenu = ({item}) => {
             show={showModal === x}
             onHide={handleCloseModal}
           >
-            <Modal.Header>
-              <div className="text-center">
+            <Modal.Header className="row">
+              <div className='col text-center'>
                 <h1>{item.name}</h1>
                 <img
                   src={`data:image/png;base64,${item.image}`}
-                  className="w-50 mb-3"
+                  className="w-80 mb-3"
                   alt="b"
                 />
               </div>
