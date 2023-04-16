@@ -1,13 +1,13 @@
 // overwrite
 
 // custom
-$primary: #f00;
+$primary: rgb(0, 225, 255);
 $secondary: #0f0;
 $dark: rgb(155, 155, 155);
-$light: rgb(104, 79, 79);
+$light: #7633f9;
 $success: #0fa;
 $info: #555;
 $warning: #ff0;
-$danger: rgb(255, 38, 0);
+$danger: rgb(255, 56, 21);
 
 @import '~bootstrap/scss/bootstrap.scss'

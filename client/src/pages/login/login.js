@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 //import axios from "../../utils/axios_config";
 import axios from 'axios';
 
 const Login = () => {
-
   const [data, setData] = useState({
     username: "",
     email: "",
@@ -21,7 +20,7 @@ const Login = () => {
       const url = "/api/login";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.token);
-      return redirect("/");
+      window.location = "/";
       console.log(res.message);
     } catch (error) {
       console.log(error);
