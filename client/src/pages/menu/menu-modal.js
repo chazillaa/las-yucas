@@ -34,7 +34,7 @@ const Modalmenu = ({item}) => {
     console.log(event);
     const postCart = async (data) => {
       try {
-        const url = `http://localhost:3001/api/cart`;
+        const url = `/api/cart`;
         const { data: res } = await axios.post(url, data, {
           headers: { Authorization: "Bearer " + localStorage.getItem("token") },
         });

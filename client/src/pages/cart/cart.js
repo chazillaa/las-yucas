@@ -65,6 +65,7 @@ const Cart = (props) => {
     const url = '/api/cart/purchase';
     const { data: res } = await axios.post(url, null, { headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } });
     if (res.success) {
+      props.setCount(0);
       handleShowModal()
     }
   }
