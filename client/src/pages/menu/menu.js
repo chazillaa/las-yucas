@@ -60,7 +60,7 @@ const Menu = (props) => {
       <div>
         <div className="text-center container py-2">
           <div className="row justify-content-md-center">
-            {menu.map((item) => (
+            {Array.isArray(menu) ? menu.map((item) => (
               <div className="col-sm-3 mb-6 card m-3" key={item._id} data-item-id={item.id}>
                 <div className="bg-image hover-zoom ripple">
                   <div className="card-body">
@@ -93,7 +93,7 @@ const Menu = (props) => {
                   </div>
                 </div>
               </div>
-            ))}
+            )):<div></div>}
           </div>
         </div>
       </div>

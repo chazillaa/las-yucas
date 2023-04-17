@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
 const Signup = () => {
+  let nav = useNavigate();
   const [data, setData] = useState({
     username: "",
     email: "",
@@ -20,7 +21,7 @@ const Signup = () => {
       const url = "/api/signup";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.token);
-      redirect("/");
+      nav("/");
       console.log(res.message);
     } catch (error) {
       console.log(error);
