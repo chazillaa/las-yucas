@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Navbar count={cartCount} login={isLogged} setLogin={showIsLogged}/>
+      <Navbar count={cartCount} login={isLogged} signup={isLogged} setLogin={showIsLogged}/>
       <div className='below-nav above-footer'>
       <Routes>
         <Route path='/' exact element={<Home />} />
@@ -27,7 +27,7 @@ function App() {
         setCount={setCartCount} 
         count={cartCount}
         />} />}
-        {!user && <Route path='/signup' exact element={<Signup />} />}
+        {!user && <Route path='/signup' exact element={<Signup setLogin={showIsLogged}/>} />}
         {!user && <Route path='/login' exact element={<Login setLogin={showIsLogged}/>} />}
       </Routes>
       </div>

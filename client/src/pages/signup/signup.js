@@ -3,8 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
-const Signup = () => {
+const Signup = (props) => {
+
   let nav = useNavigate();
+
   const [data, setData] = useState({
     username: "",
     email: "",
@@ -21,6 +23,7 @@ const Signup = () => {
       const url = "/api/signup";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.token);
+      props.setLogin(true);
       nav("/");
       console.log(res.message);
     } catch (error) {
@@ -42,7 +45,7 @@ const Signup = () => {
                     <form className onSubmit={handleSubmit}>
                       <div className="form-outline mb-4">
                         <label className="form-label" for="form3Example1cg">
-                          Your Name
+                          Username
                         </label>
                         <input
                           type="text"
@@ -57,7 +60,7 @@ const Signup = () => {
 
                       <div className="form-outline mb-4">
                         <label className="form-label" for="form3Example3cg">
-                          Your Email
+                          Email
                         </label>
                         <input
                           type="email"

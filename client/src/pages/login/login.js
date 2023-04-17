@@ -10,7 +10,9 @@ const Login = (props) => {
     email: "",
     password: "",
   });
+  
   let nav = useNavigate();
+  
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
